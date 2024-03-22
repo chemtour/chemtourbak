@@ -23,20 +23,20 @@ jobs:
         #run: hugo --minify	# 使用 hugo 构建静态网页
         run: hugo         	# 使用 hugo 构建静态网页
 
-      - name: Deploy To NavBioIT                        # 部署至当前仓库的其他分支
+      - name: Deploy To  chemtour                        # 部署至当前仓库的其他分支
         uses: peaceiris/actions-gh-pages@v3             # 一个自动发布github pages的action
         with:
-          external_repository: shenweiyan/NavBioIT	# 发布到哪个repo
+          external_repository: chemtour/chemtour.github.io	# 发布到哪个repo
           #1. 创建 Personal_Access_Token：
           #   GitHub 个人账号 -> Settings -> Developer settings -> Personal access tokens ->  Tokens (classic) -> New personal access token (classic)
           #   - Expiration: No expiration
           #   - Select scopes: 全选
           #2. 粘贴 Personal_Access_Token：
           #   进入目标 repo -> Settings -> Security -> Secrets and variables -> Actions，选择 New repository secret -> 粘贴前面生成的 personal_access_token	
-          personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}	  
+          personal_token: ${{ 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 }}	  
           #注意这里指的是 Pages 要发布哪个文件夹的内容，而不是指发布到目的仓库的什么位置；因为 hugo 默认生成静态网页到 public 文件夹，所以这里发布 public 文件夹里的内容。
           publish_dir: ./public
           #发布到哪个branch
-          publish_branch: gh-pages
+          publish_branch: chemtour-pages
           force_orphan: true
           full_commit_message: ${{ github.event.head_commit.message }}
